@@ -1,7 +1,7 @@
 package org.example;
 
 public class Rogue extends Units {
-    public boolean knife;
+    public boolean knife; //персональный навык персонажа нож есть/нет;
 
     public Rogue(String name, int health, int defence, int force, int[] place) {
         super(name, health, defence, force, place);
@@ -17,5 +17,15 @@ public class Rogue extends Units {
         return true;
     }
 
+    @Override
+    public void step() {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return "Разбойник - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Нож-" + knife
+                + " ["+place_xy[0] + "," + place_xy[1] + "]";
+    }
 
 }

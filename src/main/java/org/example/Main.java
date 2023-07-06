@@ -1,23 +1,60 @@
 package org.example;
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        Rogue rogue1 = new Rogue("Rogue1", 10, 10, 10, new int[]{0,0});
-        Magician magician1 = new Magician("Magician1", 10, 10, 10, new int[]{0,0});
-        Monk monk1 = new Monk("Monk1", 10, 10,10,new int[]{0,0});
-        Crossbowman crossbowman1 = new Crossbowman("Crossbowman", 10,10,10, new int[]{0,0});
-        Sniper sniper1 = new Sniper("Sniper1", 10,10,10,new int[]{0,0});
-        Spearman spearman1 = new Spearman("Spearman1",10,10,10,new int[]{0,0});
-        Worker worker1 = new Worker("worker1", 10, 10, 10,new int[]{0,0});
 
-        System.out.println(magician1.checkMagic());
-        System.out.println(rogue1.checkKnife());
-        System.out.println(monk1.checkRecover());
-        magician1.setMagic(-10);
-        rogue1.setKnife();
-        monk1.setRecover(100);
-        System.out.println(rogue1.checkKnife());
-        System.out.println(magician1.checkMagic());
-        System.out.println(monk1.checkRecover());
+        List<Units> team1 = new ArrayList<>();
+        List<Units> team2 = new ArrayList<>();
 
+        for (int n = 0; n <10; n++){
+            team1.add(new Crossbowman(getName(), 10,10,10, new int[]{0,0}));
+            team1.add(new Magician(getName(), 10, 10, 10, new int[]{0,0}));
+            team1.add(new Monk(getName(), 10, 10, 10, new int[]{0,0}));
+            team1.add(new Rogue(getName(), 10, 10, 10, new int[]{0,0}));
+            team1.add(new Sniper(getName(), 10, 10, 10, new int[]{0,0}));
+            team1.add(new Spearman(getName(), 10, 10, 10, new int[]{0,0}));
+            team1.add(new Worker(getName(), 10, 10, 10, new int[]{0,0}));
+
+            team2.add(new Crossbowman(getName(), 10,10,10, new int[]{0,0}));
+            team2.add(new Magician(getName(), 10, 10, 10, new int[]{0,0}));
+            team2.add(new Monk(getName(), 10, 10, 10, new int[]{0,0}));
+            team2.add(new Rogue(getName(), 10, 10, 10, new int[]{0,0}));
+            team2.add(new Sniper(getName(), 10, 10, 10, new int[]{0,0}));
+            team2.add(new Spearman(getName(), 10, 10, 10, new int[]{0,0}));
+            team2.add(new Worker(getName(), 10, 10, 10, new int[]{0,0}));
+        }
+        Collections.sort(team1, new Comparator<Units>() {
+            @Override
+            public int compare(Units o1, Units o2) {
+                return o2.getInfo().compareTo(o1.getInfo());
+            }
+        });
+
+        Collections.sort(team2, new Comparator<Units>() {
+            @Override
+            public int compare(Units o1, Units o2) {
+                return o2.getInfo().compareTo(o1.getInfo());
+            }
+        });
+
+
+        for (int n =0; n<team1.size()-1; n++){
+            System.out.println(team1.get(n).getInfo());
+        }
+
+        System.out.println();
+
+        for (int n =0; n<team2.size()-1; n++){
+            System.out.println(team2.get(n).getInfo());
+        }
+
+
+    }
+
+    private static String getName(){
+        String s = String.valueOf(Name.values()[new Random().nextInt(Name.values().length)]);
+        return s;
     }
 }

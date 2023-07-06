@@ -2,12 +2,12 @@ package org.example;
 
 import java.util.Arrays;
 
-public abstract class Units {
-    public String name;
-    public int health;
-    public int defence;
-    public int force;
-    public int[] place_xy = new int[2];
+public abstract class Units implements Interface{
+    public String name; //имя персонажа
+    public int health; //здоровье персонажа 1-10. 0-мертв
+    public int defence; //защита персонажа 0-3
+    public int force; //сила-урон персонажа 0-3
+    public int[] place_xy = new int[2]; //место персонажа на игровом поле.
     public Units(String name, int health, int defence, int force, int[] place){
         this.name = name;
         this.health = health;
@@ -15,23 +15,4 @@ public abstract class Units {
         this.force = force;
         this.place_xy = place_xy;
     }
-
-    public String getName () {
-        return name;}
-
-    public int getDefence() {
-        return defence;
-    }
-
-    public int getForce() {
-        return force;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public int[] getPlace_xy() {
-        return place_xy;
-    }
-}
+  }
