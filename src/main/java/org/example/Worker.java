@@ -1,10 +1,12 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Worker extends Units{
     public int tool; //персональный навык персонажа инструмент 0-3. возможность создавать оружие. навык восстанавливается через 3 хода.
 
-    public Worker(String name, int health, int defence, int force, int[] place) {
-        super(name, health, defence, force, place);
+    public Worker(String name, int health, int defence, int force, int x, int y) {
+        super(name, health, defence, force, x, y);
         this.tool = tool;
     }
 
@@ -18,13 +20,13 @@ public class Worker extends Units{
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<Units> units) {
 
     }
 
     @Override
     public String getInfo() {
         return "Рабочий - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Инструмент-" + tool
-                + " ["+place_xy[0] + "," + place_xy[1] + "]";
+                + " x="+coord.x + ", y=" + coord.y;
     }
 }

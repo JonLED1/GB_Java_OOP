@@ -1,10 +1,12 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Crossbowman extends Units{
     public int arrow; //персональный навык персонажа стрелы 0-10.
 
-    public Crossbowman(String name, int health, int defence, int force, int[] place) {
-        super(name, health, defence, force, place);
+    public Crossbowman(String name, int health, int defence, int force, int x, int y) {
+        super(name, health, defence, force, x, y);
         this.arrow = arrow;
     }
 
@@ -17,13 +19,13 @@ public class Crossbowman extends Units{
         return arrow;
     }
     @Override
-    public void step() {
+    public void step(ArrayList<Units> units) {
 
     }
 
     @Override
     public String getInfo() {
         return "Арбалетчик - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Стрелы-" + arrow
-                + " ["+place_xy[0] + "," + place_xy[1] + "]";
+                + " x="+coord.x + ", y=" + coord.y;
     }
 }

@@ -1,7 +1,9 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public interface Interface {
-    void step();
+    void step(ArrayList<Units> units);
 
     String getInfo();
 }

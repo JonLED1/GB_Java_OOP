@@ -1,10 +1,12 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Rogue extends Units {
     public boolean knife; //персональный навык персонажа нож есть/нет;
 
-    public Rogue(String name, int health, int defence, int force, int[] place) {
-        super(name, health, defence, force, place);
+    public Rogue(String name, int health, int defence, int force, int x, int y) {
+        super(name, health, defence, force, x, y);
         this.knife = knife;
     }
 
@@ -18,14 +20,14 @@ public class Rogue extends Units {
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<Units> units) {
 
     }
 
     @Override
     public String getInfo() {
         return "Разбойник - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Нож-" + knife
-                + " ["+place_xy[0] + "," + place_xy[1] + "]";
+                + " x="+coord.x + ", y=" + coord.y;
     }
 
 }

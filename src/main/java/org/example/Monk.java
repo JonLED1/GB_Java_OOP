@@ -1,10 +1,12 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Monk extends Units{
     public int recover; //персональный навык персонажа способность восстановления здоровья персонажей 0-10.
 
-    public Monk(String name, int health, int defence, int force, int[] place) {
-        super(name, health, defence, force, place);
+    public Monk(String name, int health, int defence, int force, int x, int y) {
+        super(name, health, defence, force, x, y);
         this.recover = recover;
     }
 
@@ -18,13 +20,13 @@ public class Monk extends Units{
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<Units> units) {
 
     }
 
     @Override
     public String getInfo() {
         return "Монах - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Восстановление-" + recover
-                + " ["+place_xy[0] + "," + place_xy[1] + "]";
+                + " x="+coord.x + ", y=" + coord.y;
     }
 }
