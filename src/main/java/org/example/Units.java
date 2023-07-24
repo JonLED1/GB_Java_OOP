@@ -18,4 +18,18 @@ public abstract class Units implements Interface{
 
     }
 
+    public void doAttack(Units target){
+        int damage = 1;
+        target.getDamage(damage);
+    }
+
+    public void getDamage(int damage){
+        if (this.health-damage>0){
+            this.health -= damage;
+        }
+        else {
+            this.health = 0;
+        }
+    }
+
   }
