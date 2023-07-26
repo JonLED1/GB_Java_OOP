@@ -3,31 +3,33 @@ package org.example;
 import java.util.ArrayList;
 
 public class Sniper extends Units{
-    public int bullet; //персональный навык персонажа пули 0-10.
+    public int bullet = 10; //персональный навык персонажа пули 0-10.
 
-    public Sniper(String name, int health, int defence, int force, int x, int y) {
-        super(name, health, defence, force, x, y);
+    public Sniper(String name,  int x, int y) {
+        super(name, x, y);
         this.bullet = bullet;
     }
 
-    public int checkBullet(){
-        return bullet;
-    }
-    public int setBuleet(int n){
-        this.bullet +=n;
-        if (bullet<0) bullet = 0;
-        return bullet;
-    }
-
     @Override
-    public void step(ArrayList<Units> units) {
+    public void step(ArrayList < Units > friend, ArrayList<Units> enemy) {
 
     }
 
     @Override
     public String getInfo() {
-        return "Снайпер - " + name + " Здоровье-" + health + " Защита-" + defence + " Сила-" + force  + " Пуля-" + bullet
+        return "Снайпер - " + name + " Здоровье-" + health + " Пуля-" + bullet
                 + " x="+coord.x + ", y=" + coord.y;
     }
 
+    @Override
+    public int checkArm() {
+        return bullet;
+    }
+    public String getType(){
+        return "Sniper";
+    }
+
+    public void addArmed(){
+        bullet+=1;
+    }
 }

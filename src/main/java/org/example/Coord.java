@@ -9,8 +9,6 @@ public class Coord {
     }
 
     public  double CountDistance(Coord coord){
-        int dx = coord.x - x;
-        int dy = coord.y - y;
-        return Math.sqrt(Math.pow(dx, 2) +Math.pow(dy, 2));
+        return Math.sqrt(Math.pow((coord.x-x), 2) + Math.pow((coord.y-y), 2));
     }
 }
