@@ -30,12 +30,13 @@ public class View {
         for (Units human: Main.allteam) {
             if (human.coord.x == x && human.coord.y == y){
                 if (human.health == 0) {
-                    out = "|" + (AnsiColors.ANSI_RED + human.toString().charAt(0) + AnsiColors.ANSI_RESET);
+                    out = "|" + (AnsiColors.ANSI_RED + human.toString().charAt(12) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.team1.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.toString().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.team2.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.toString().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.team1.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.toString().charAt(12) + AnsiColors.ANSI_RESET);
+                if (Main.team2.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.toString().charAt(12) + AnsiColors.ANSI_RESET);
                 break;
+
             }
         }
         return out;

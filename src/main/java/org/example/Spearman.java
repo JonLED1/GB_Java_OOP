@@ -10,10 +10,23 @@ public class Spearman extends Units{
         this.spear = spear;
     }
 
-
+    public Units FindEnemy(Spearman spearman, ArrayList<Units> teamEnemy){
+        double min_distance = 100;
+        Units Enemy = null;
+        for (Units currentEnemy : teamEnemy){
+            if (spearman.coord.CountDistance(currentEnemy.coord) < min_distance && currentEnemy.health>0){
+                min_distance = spearman.coord.CountDistance(currentEnemy.coord);
+                Enemy = currentEnemy;
+            }
+        }
+        return Enemy;
+    }
     @Override
     public void step(ArrayList < Units > friend, ArrayList<Units> enemy) {
-
+        if (spear<1 || health<1) return;
+        Units EnemyForAttack = FindEnemy(Spearman.this, enemy);
+        doAttack(EnemyForAttack);
+        if (EnemyForAttack!=null){spear --;}
     }
     @Override
     public String getInfo() {

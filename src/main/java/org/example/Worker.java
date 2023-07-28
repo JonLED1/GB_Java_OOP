@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Worker extends Units{
-    public int tool=10; //персональный навык персонажа инструмент 0-10. возможность создавать оружие.
+    public int tool=5; //персональный навык персонажа инструмент 0-10. возможность создавать оружие.
 
     public Worker(String name, int x, int y) {
         super(name, x, y);
@@ -27,7 +27,6 @@ public class Worker extends Units{
         if (tool<1 || health<1) return;
         Units FriendForArm = FindFriend (Worker.this, friend);
         addArm(FriendForArm);
-        System.out.println(FriendForArm);
         tool -=1;
     }
 
