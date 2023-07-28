@@ -46,11 +46,32 @@ public class Main {
                    hero.step(team1, team2);
                 }
             }
+
+            if (teamDie(team1)==true){
+                System.out.println("Team 2 (Blue) Win");
+                break;
+            }
+            if (teamDie(team2)==true) {
+                System.out.println("Team 1 (Green) Win");
+                break;
+            }
+
         }
     }
 
     private static String getName(){
         String s = String.valueOf(Name.values()[new Random().nextInt(Name.values().length)]);
         return s;
+    }
+
+    private static boolean teamDie(ArrayList<Units> team){
+        int healthCount = 0;
+        for (Units hero : team){
+            if (hero.health > 0) {
+                healthCount ++;
+            }
+        }
+        if (healthCount>0){return false;}
+        else {return true;}
     }
 }
